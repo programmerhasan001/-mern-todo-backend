@@ -10,7 +10,7 @@ const PORT = process.env.PORT | 5000;
 
 
 app.use(express.json()); // requested json data parse and make available to req.body
-app.use(cors());    // allow request from any port
+app.use(cors({ origin: "*", optionsSuccessStatus: 200 }));    // allow request from any port
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected"))
